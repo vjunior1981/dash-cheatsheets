@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>Taskwarrior - Usage examples</title>
+<link href='style.css' rel='stylesheet'>
+<link href='//dash_ref/Category/30 Second Tutorial/1'>
+<link href='//dash_ref_30 Second Tutorial/Entry/Basic usage from the 30-Second Tutorial./0'>
+<link href='//dash_ref/Category/Creating Tasks/1'>
+<link href='//dash_ref_Creating Tasks/Entry/Create a task with due date./0'>
+<link href='//dash_ref_Creating Tasks/Entry/Create a task, then add a due date later./0'>
+<link href='//dash_ref_Creating Tasks/Entry/Remove a due date from a task./0'>
+<link href='//dash_ref_Creating Tasks/Entry/Create a task with a multi-line description./0'>
+<link href='//dash_ref/Category/Filters/1'>
+<link href='//dash_ref_Filters/Entry/Show tasks I added in the last 4 days./0'>
+<link href='//dash_ref_Filters/Entry/Show tasks I added in the last hour../0'>
+<link href='//dash_ref_Filters/Entry/Show tasks I completed between a date range../0'>
+<link href='//dash_ref_Filters/Entry/Show tasks I completed in the last week../0'>
+<link href='//dash_ref_Filters/Entry/Show tasks in This project or That project../0'>
+<link href='//dash_ref_Filters/Entry/More complex algebraic filters../0'>
+<link href='//dash_ref_Filters/Entry/Search for pattern in description and annotations:./0'>
+<link href='//dash_ref_Filters/Entry/Search for tasks with no project../0'>
+<link href='//dash_ref/Category/Reports/1'>
+<link href='//dash_ref_Reports/Entry/Temporarily changing the sorting of a report./0'>
+<link href='//dash_ref/Category/Projects/1'>
+<link href='//dash_ref_Projects/Entry/Assign a long project name./0'>
+<link href='//dash_ref_Projects/Entry/Moving all tasks to a new project./0'>
+<link href='//dash_ref_Projects/Entry/Moving all pending tasks to a new project./0'>
+<link href='//dash_ref_Projects/Entry/Using a project hierarchy./0'>
+<link href='//dash_ref_Projects/Entry/What projects are currently used?/0'>
+<link href='//dash_ref_Projects/Entry/What are all the projects I have ever used?/0'>
+<link href='//dash_ref/Category/Tags/1'>
+<link href='//dash_ref_Tags/Entry/List tasks that have a specific tag./0'>
+<link href='//dash_ref_Tags/Entry/List tasks that do not have a specific tag./0'>
+<link href='//dash_ref_Tags/Entry/List tasks that have any tags./0'>
+<link href='//dash_ref_Tags/Entry/List tasks that have no tags./0'>
+<link href='//dash_ref_Tags/Entry/List tasks that have two specific tags./0'>
+<link href='//dash_ref_Tags/Entry/List tasks that have either of two specific tags./0'>
+<link href='//dash_ref_Tags/Entry/List tasks that have just one of two specific tags./0'>
+<link href='//dash_ref_Tags/Entry/What tags am I currently using?/0'>
+<link href='//dash_ref_Tags/Entry/What are all the tags I have ever used?/0'>
+<link href='//dash_ref/Category/Special Tags/1'>
+<link href='//dash_ref_Special Tags/Entry/Modify a task to boost it&#39;s urgency, and probably cause it to show up on the next report./0'>
+<link href='//dash_ref/Category/Virtual Tags/1'>
+<link href='//dash_ref_Virtual Tags/Entry/List tasks due today./0'>
+<link href='//dash_ref_Virtual Tags/Entry/List tasks that are due, but not today./0'>
+<link href='//dash_ref_Virtual Tags/Entry/List tasks that are due this week./0'>
+<link href='//dash_ref_Virtual Tags/Entry/List task that are overdue./0'>
+<link href='//dash_ref_Virtual Tags/Entry/What virtual tags are present for this task?/0'>
+<link href='//dash_ref/Category/Recurring Tasks/1'>
+<link href='//dash_ref_Recurring Tasks/Entry/I want to make a task that is due at 9:00am every Monday, starting this coming Monday./0'>
+<link href='//dash_ref_Recurring Tasks/Entry/I want a reminder to pay the rent every month, but only for a year./0'>
+<link href='//dash_ref/Category/Priority/1'>
+<link href='//dash_ref_Priority/Entry/Make priority L sort lower than no priority./0'>
+<link href='//dash_ref_Priority/Entry/I need more priority values for my workflow./0'>
+<link href='//dash_ref_Priority/Entry/How do I remove the priority from a task?/0'>
+<link href='//dash_ref/Category/Color/1'>
+<link href='//dash_ref_Color/Entry/I&#39;m using a color theme, but I don&#39;t see any colors. This is usually because your tasks do not contain due dates, priorities etc. Prove color is working with these commands./0'>
+<link href='//dash_ref_Color/Entry/When task output goes to a file or pipe, all color is lost. Force color with:/0'>
+<link href='//dash_ref/Category/DOM/1'>
+<link href='//dash_ref_DOM/Entry/Get just the description for task 12./0'>
+<link href='//dash_ref_DOM/Entry/Show the creation timestamp, and last modification date for task 12./0'>
+<link href='//dash_ref_DOM/Entry/Get the dimensions of my terminal window./0'>
+<link href='//dash_ref_DOM/Entry/Add a task, and set the wait date to 4 days before the due date./0'>
+<link href='//dash_ref_DOM/Entry/Add a task, and use the same due date as task 12./0'>
+<link href='//dash_ref_DOM/Entry/Get the week number on which task 12 due./0'>
+<link href='//dash_ref_DOM/Entry/Get the columns used in the next report./0'>
+<link href='//dash_ref/Category/Configuration/1'>
+<link href='//dash_ref_Configuration/Entry/Set the default.command to a different report./0'>
+<link href='//dash_ref_Configuration/Entry/Restore the default.command to its original setting./0'>
+<link href='//dash_ref_Configuration/Entry/Set the default.command to a blank value./0'>
+<link href='//dash_ref_Configuration/Entry/Temporarily override default.command./0'>
+<link href='//dash_ref_Configuration/Entry/Show sort order of all reports./0'>
+<link href='//dash_ref/Category/Miscellaneous/1'>
+<link href='//dash_ref_Miscellaneous/Entry/What is the most recent task ID?/0'>
+<link href='//dash_ref_Miscellaneous/Entry/What is the minimum necessary data for a task?/0'>
+<link href='//dash_ref/Category/Troubleshooting/1'>
+<link href='//dash_ref_Troubleshooting/Entry/Show the runtime diagnostics, to see if anything is wrong./0'>
+<link href='//dash_ref_Troubleshooting/Entry/Determine which version of GnuTLS is used by Taskwarrior./0'>
+<link href='//dash_ref_Troubleshooting/Entry/Just let me brute-force change a task. Using Vim./0'>
+<link href='//dash_ref_Troubleshooting/Entry/I can&#39;t list my completed tasks, because the list report has a filter that shows only pending tasks./0'>
+<link href='//dash_ref_Troubleshooting/Entry/Do I have the latest released version?/0'>
+</head>
+<body>
+<header>
+<h1>Taskwarrior - Usage examples</h1>
+</header>
+<article>
+<p><p>Here are some Taskwarrior command line examples that cover a variety of topics.</p>
+
+<p>While this is not a reference for the features and command line, perhaps
+you will learn something new...</p>
+
+<p>Some of the example are deliberately chosen because there is more than one
+solution, in which case all are presented, for comparison.</p>
+</p>
+<section class='category'>
+<h2 id='//dash_ref/Category/30 Second Tutorial/1'>
+30 Second Tutorial
+</h2>
+<div class='scrollable'>
+<table>
+<tr id='//dash_ref_30 Second Tutorial/Entry/Basic usage from the 30-Second Tutorial./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Basic usage from the <a href="https://taskwarrior.org/docs/30second.html">30-Second Tutorial</a>.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task add Read Taskwarrior documents later&#x000A;<span class="nv">$ </span>task add priority:H Pay bills&#x000A;<span class="nv">$ </span>task next&#x000A;<span class="nv">$ </span>task 2 <span class="k">done</span>&#x000A;<span class="nv">$ </span>task&#x000A;<span class="nv">$ </span>task 1 delete</pre></div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class='category'>
+<h2 id='//dash_ref/Category/Creating Tasks/1'>
+Creating Tasks
+</h2>
+<div class='scrollable'>
+<table>
+<tr id='//dash_ref_Creating Tasks/Entry/Create a task with due date./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Create a task with due date.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task add Pay the rent due:eom</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Creating Tasks/Entry/Create a task, then add a due date later./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Create a task, then add a due date later.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task add Pay the rent&#x000A;Created task 12&#x000A;<span class="nv">$ </span>task 12 modify due:eom</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Creating Tasks/Entry/Remove a due date from a task./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Remove a due date from a task.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task 12 modify due:</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Creating Tasks/Entry/Create a task with a multi-line description./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Create a task with a multi-line description.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task add <span class="s2">"Five syllables here&#x000A;Seven more syllables there&#x000A;Are you happy now?"</span></pre></div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class='category'>
+<h2 id='//dash_ref/Category/Filters/1'>
+Filters
+</h2>
+<div class='scrollable'>
+<table>
+<tr id='//dash_ref_Filters/Entry/Show tasks I added in the last 4 days./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Show tasks I added in the last 4 days.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task entry.after:today-4days list</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Filters/Entry/Show tasks I added in the last hour../0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Show tasks I added in the last hour..</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task entry.after:now-1hour list</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Filters/Entry/Show tasks I completed between a date range../0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Show tasks I completed between a date range..</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task end.after:2015-05-01 and end.before:2015-05-31 completed</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Filters/Entry/Show tasks I completed in the last week../0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Show tasks I completed in the last week..</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task end.after:today-1wk completed</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Filters/Entry/Show tasks in This project or That project../0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Show tasks in This project or That project..</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task project:This or project:That list</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Filters/Entry/More complex algebraic filters../0'>
+<td class='description' colspan='2'>
+<div class='name'><p>More complex algebraic filters..</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task project:This and <span class="se">\(</span> priority:H or priority:M <span class="se">\)</span> list</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Filters/Entry/Search for pattern in description and annotations:./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Search for pattern in description and annotations:.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task /pattern/ list&#x000A;<span class="nv">$ </span>task rc.search.case.sensitive:yes /pattern/ list&#x000A;<span class="nv">$ </span>task rc.search.case.sensitive:no  /pattern/ list</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Filters/Entry/Search for tasks with no project../0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Search for tasks with no project..</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task project: list</pre></div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class='category'>
+<h2 id='//dash_ref/Category/Reports/1'>
+Reports
+</h2>
+<div class='scrollable'>
+<table>
+<tr id='//dash_ref_Reports/Entry/Temporarily changing the sorting of a report./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Temporarily changing the sorting of a report.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task rc.report.next.sort<span class="o">=</span>due-,urgency- next</pre></div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class='category'>
+<h2 id='//dash_ref/Category/Projects/1'>
+Projects
+</h2>
+<div class='scrollable'>
+<table>
+<tr id='//dash_ref_Projects/Entry/Assign a long project name./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Assign a long project name.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task add Rake the leaves project:<span class="s1">'Home &amp; Garden'</span></pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Projects/Entry/Moving all tasks to a new project./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Moving all tasks to a new project.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task project:OLDNAME modify project:NEWNAME</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Projects/Entry/Moving all pending tasks to a new project./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Moving all pending tasks to a new project.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task project:OLDNAME and status:pending modify project:NEWNAME</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Projects/Entry/Using a project hierarchy./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Using a project hierarchy.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task add project:Home.Kitchen Clean the floor&#x000A;<span class="nv">$ </span>task add project:Home.Kitchen Replace broken light bulb&#x000A;<span class="nv">$ </span>task add project:Home.Garden Plant the bulbs&#x000A;&#x000A;<span class="nv">$ </span>task project:Home.Kitchen count&#x000A;2&#x000A;&#x000A;<span class="nv">$ </span>task project:Home.Garden count&#x000A;1&#x000A;&#x000A;<span class="nv">$ </span>task project:Home count&#x000A;3</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Projects/Entry/What projects are currently used?/0'>
+<td class='description' colspan='2'>
+<div class='name'><p>What projects are currently used?</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task projects&#x000A;<span class="nv">$ </span>task _projects</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Projects/Entry/What are all the projects I have ever used?/0'>
+<td class='description' colspan='2'>
+<div class='name'><p>What are all the projects I have ever used?</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task rc.list.all.projects<span class="o">=</span>1 projects&#x000A;<span class="nv">$ </span>task rc.list.all.projects<span class="o">=</span>1 _projects&#x000A;<span class="nv">$ </span>task _unique projects</pre></div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class='category'>
+<h2 id='//dash_ref/Category/Tags/1'>
+Tags
+</h2>
+<div class='scrollable'>
+<table>
+<tr id='//dash_ref_Tags/Entry/List tasks that have a specific tag./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>List tasks that have a specific tag.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task +home list</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Tags/Entry/List tasks that do not have a specific tag./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>List tasks that do not have a specific tag.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task <span class="nt">-home</span> list</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Tags/Entry/List tasks that have any tags./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>List tasks that have any tags.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task tags.any: list&#x000A;<span class="nv">$ </span>task +TAGGED list</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Tags/Entry/List tasks that have no tags./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>List tasks that have no tags.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task tags.none: list</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Tags/Entry/List tasks that have two specific tags./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>List tasks that have two specific tags.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task +this +that list&#x000A;<span class="nv">$ </span>task +this and +that list</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Tags/Entry/List tasks that have either of two specific tags./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>List tasks that have either of two specific tags.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task +this or +that list</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Tags/Entry/List tasks that have just one of two specific tags./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>List tasks that have just one of two specific tags.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task +this xor +that list</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Tags/Entry/What tags am I currently using?/0'>
+<td class='description' colspan='2'>
+<div class='name'><p>What tags am I currently using?</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task tags</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Tags/Entry/What are all the tags I have ever used?/0'>
+<td class='description' colspan='2'>
+<div class='name'><p>What are all the tags I have ever used?</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task rc.list.all.tags<span class="o">=</span>1 tags&#x000A;<span class="nv">$ </span>task _tags</pre></div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class='category'>
+<h2 id='//dash_ref/Category/Special Tags/1'>
+Special Tags
+</h2>
+<div class='scrollable'>
+<table>
+<tr id='//dash_ref_Special Tags/Entry/Modify a task to boost it&#39;s urgency, and probably cause it to show up on the next report./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Modify a task to boost it&#39;s urgency, and probably cause it to show up on the next report.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task 1 modify +next</pre></div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class='category'>
+<h2 id='//dash_ref/Category/Virtual Tags/1'>
+Virtual Tags
+</h2>
+<div class='scrollable'>
+<table>
+<tr id='//dash_ref_Virtual Tags/Entry/List tasks due today./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>List tasks due today.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task due.after:yesterday and due.before:tomorrow list&#x000A;<span class="nv">$ </span>task +DUETODAY list</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Virtual Tags/Entry/List tasks that are due, but not today./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>List tasks that are due, but not today.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task +DUE <span class="nt">-DUETODAY</span> list</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Virtual Tags/Entry/List tasks that are due this week./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>List tasks that are due this week.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task +WEEK list</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Virtual Tags/Entry/List task that are overdue./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>List task that are overdue.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task +OVERDUE list</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Virtual Tags/Entry/What virtual tags are present for this task?/0'>
+<td class='description' colspan='2'>
+<div class='name'><p>What virtual tags are present for this task?</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task 1 info</pre></div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class='category'>
+<h2 id='//dash_ref/Category/Recurring Tasks/1'>
+Recurring Tasks
+</h2>
+<div class='scrollable'>
+<table>
+<tr id='//dash_ref_Recurring Tasks/Entry/I want to make a task that is due at 9:00am every Monday, starting this coming Monday./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>I want to make a task that is due at 9:00am every Monday, starting this coming Monday.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task add Do the thing due:2015-06-08T09:00 recur:weekly</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Recurring Tasks/Entry/I want a reminder to pay the rent every month, but only for a year./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>I want a reminder to pay the rent every month, but only for a year.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task add Pay rent due:28th recur:monthly <span class="k">until</span>:now+1yr</pre></div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class='category'>
+<h2 id='//dash_ref/Category/Priority/1'>
+Priority
+</h2>
+<div class='scrollable'>
+<table>
+<tr id='//dash_ref_Priority/Entry/Make priority L sort lower than no priority./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Make priority L sort lower than no priority.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task config <span class="nt">--</span> uda.priority.values H,M,,L</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Priority/Entry/I need more priority values for my workflow./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>I need more priority values for my workflow.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task config <span class="nt">--</span> uda.priority.values OMG,DoIt,Meh,Phfh,Nope,</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Priority/Entry/How do I remove the priority from a task?/0'>
+<td class='description' colspan='2'>
+<div class='name'><p>How do I remove the priority from a task?</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task 1 modify priority:</pre></div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class='category'>
+<h2 id='//dash_ref/Category/Color/1'>
+Color
+</h2>
+<div class='scrollable'>
+<table>
+<tr id='//dash_ref_Color/Entry/I&#39;m using a color theme, but I don&#39;t see any colors. This is usually because your tasks do not contain due dates, priorities etc. Prove color is working with these commands./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>I&#39;m using a color theme, but I don&#39;t see any colors. This is usually because your tasks do not contain due dates, priorities etc. Prove color is working with these commands.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task color&#x000A;<span class="nv">$ </span>task color legend</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Color/Entry/When task output goes to a file or pipe, all color is lost. Force color with:/0'>
+<td class='description' colspan='2'>
+<div class='name'><p>When task output goes to a file or pipe, all color is lost. Force color with:</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task rc._forcecolor:on rc.defaultwidth:120 rc.detection:off ...</pre></div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class='category'>
+<h2 id='//dash_ref/Category/DOM/1'>
+DOM
+</h2>
+<div class='scrollable'>
+<table>
+<tr id='//dash_ref_DOM/Entry/Get just the description for task 12./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Get just the description for task 12.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task _get 12.description&#x000A;Rake the leaves</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_DOM/Entry/Show the creation timestamp, and last modification date for task 12./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Show the creation timestamp, and last modification date for task 12.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task _get 12.entry 12.modification&#x000A;2010-04-04T01:02:31 2014-08-24T13:31:43</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_DOM/Entry/Get the dimensions of my terminal window./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Get the dimensions of my terminal window.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task _get context.width context.height</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_DOM/Entry/Add a task, and set the wait date to 4 days before the due date./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Add a task, and set the wait date to 4 days before the due date.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task add Pay the rent due:eom <span class="nb">wait</span>:due-4days</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_DOM/Entry/Add a task, and use the same due date as task 12./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Add a task, and use the same due date as task 12.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task add Buy wine <span class="k">for </span>the party due:12.due</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_DOM/Entry/Get the week number on which task 12 due./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Get the week number on which task 12 due.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task _get 12.due.week</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_DOM/Entry/Get the columns used in the next report./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Get the columns used in the next report.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task _get rc.report.next.columns&#x000A;<span class="nv">$ </span>task show report.next.columns</pre></div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class='category'>
+<h2 id='//dash_ref/Category/Configuration/1'>
+Configuration
+</h2>
+<div class='scrollable'>
+<table>
+<tr id='//dash_ref_Configuration/Entry/Set the default.command to a different report./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Set the default.command to a different report.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task config default.command long</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Configuration/Entry/Restore the default.command to its original setting./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Restore the default.command to its original setting.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task config default.command</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Configuration/Entry/Set the default.command to a blank value./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Set the default.command to a blank value.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task config default.command <span class="s1">''</span></pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Configuration/Entry/Temporarily override default.command./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Temporarily override default.command.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task rc.default.command:long</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Configuration/Entry/Show sort order of all reports./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Show sort order of all reports.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task show | <span class="nb">grep </span>report | <span class="nb">grep sort</span></pre></div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class='category'>
+<h2 id='//dash_ref/Category/Miscellaneous/1'>
+Miscellaneous
+</h2>
+<div class='scrollable'>
+<table>
+<tr id='//dash_ref_Miscellaneous/Entry/What is the most recent task ID?/0'>
+<td class='description' colspan='2'>
+<div class='name'><p>What is the most recent task ID?</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task newest rc.verbose<span class="o">=</span>nothing limit:1 | <span class="nb">cut</span> <span class="nt">-f1</span> <span class="nt">-d</span><span class="s1">' '</span>&#x000A;<span class="nv">$ </span>task rc.verbose<span class="o">=</span>nothing rc.report.foo.columns:id <span class="se">\</span>&#x000A;    rc.report.foo.sort:id- foo limit:1</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Miscellaneous/Entry/What is the minimum necessary data for a task?/0'>
+<td class='description' colspan='2'>
+<div class='name'><p>What is the minimum necessary data for a task?</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span><span class="nb">echo</span> <span class="s1">'{"description":"A new task"}'</span> | task import -&#x000A;<span class="nv">$ </span>task add A new task</pre></div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class='category'>
+<h2 id='//dash_ref/Category/Troubleshooting/1'>
+Troubleshooting
+</h2>
+<div class='scrollable'>
+<table>
+<tr id='//dash_ref_Troubleshooting/Entry/Show the runtime diagnostics, to see if anything is wrong./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Show the runtime diagnostics, to see if anything is wrong.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task diagnostics</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Troubleshooting/Entry/Determine which version of GnuTLS is used by Taskwarrior./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Determine which version of GnuTLS is used by Taskwarrior.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task diagnostics | <span class="nb">grep </span>gnutls</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Troubleshooting/Entry/Just let me brute-force change a task. Using Vim./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Just let me brute-force change a task. Using Vim.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task 12 edit&#x000A;<span class="nv">$ EDITOR</span><span class="o">=</span>vim task 12 edit</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Troubleshooting/Entry/I can&#39;t list my completed tasks, because the list report has a filter that shows only pending tasks./0'>
+<td class='description' colspan='2'>
+<div class='name'><p>I can&#39;t list my completed tasks, because the list report has a filter that shows only pending tasks.</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>task rc.report.list.filter: list&#x000A;<span class="nv">$ </span>task all</pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Troubleshooting/Entry/Do I have the latest released version?/0'>
+<td class='description' colspan='2'>
+<div class='name'><p>Do I have the latest released version?</p>
+</div>
+<div class='notes'><pre class="highlight shell"><span class="nv">$ </span>curl https://gothenburgbitfactory.org/latest/task&#x000A;2.5.3&#x000A;<span class="nv">$ </span>task <span class="nt">--version</span>&#x000A;2.5.3</pre></div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+</article>
+<footer>
+Generated with <a onclick="window.dash.openExternal_(this.href); return false;" href='https://github.com/Kapeli/cheatset#readme'>cheatset</a>
+</footer>
+</body>
+</html>
